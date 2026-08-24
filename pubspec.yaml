@@ -1,0 +1,13 @@
+name: agent_cli
+description: >-
+  Find and drive already-installed AI coding CLIs — Claude Code, Codex, Gemini
+  CLI — across the host and its WSL distributions.
+version: 0.1.0
+repository: https://github.com/lohanidamodar/agent_cli
+
+environment:
+  sdk: ^3.5.0
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.25.0
