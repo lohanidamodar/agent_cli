@@ -1,0 +1,12 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    uses: popupbits/.github/.github/workflows/dart-ci.yml@main
+    with:
+      sdk: dart
