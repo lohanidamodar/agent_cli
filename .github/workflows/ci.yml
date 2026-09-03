@@ -1,3 +1,9 @@
+# Analyse and test on every push.
+#
+# Inlined rather than calling popupbits/.github: a reusable workflow in a
+# private repository is only callable from the same owner, and this repo lives
+# under lohanidamodar/ while that one is a popupbits/ org repo.
+
 name: CI
 
 on:
@@ -7,6 +13,11 @@ on:
 
 jobs:
   test:
-    uses: popupbits/.github/.github/workflows/dart-ci.yml@main
-    with:
-      sdk: dart
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+
+      - run: dart pub get
+      - run: dart analyze --fatal-infos
+      - run: dart test
